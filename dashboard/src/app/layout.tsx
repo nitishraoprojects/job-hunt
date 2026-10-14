@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import { Suspense } from "react"
 import "./globals.css"
 import { AppSidebar } from "@/components/app-sidebar"
-import { GlobalJobSheet } from "@/components/jobs/job-sheet"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
@@ -30,7 +29,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <AppSidebar counts={counts} autopilot={autopilot} name={settings.answers.full_name ?? ""} />
             </Suspense>
             <SidebarInset className="min-w-0">{children}</SidebarInset>
-            <Suspense><GlobalJobSheet /></Suspense>
           </SidebarProvider>
         </TooltipProvider>
         <Toaster />

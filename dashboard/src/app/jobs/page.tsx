@@ -1,7 +1,7 @@
 import { Suspense } from "react"
-import { PageBody, PageHeader } from "@/components/page-header"
+import { PageHeader } from "@/components/page-header"
 import { JobsToolbar } from "@/components/jobs/filters"
-import { JobsTable } from "@/components/jobs/jobs-table"
+import { JobsWorkspace } from "@/components/jobs/jobs-table"
 import { RunTaskButton } from "@/components/run-task-button"
 import { PAGE_SIZE, countJobs, facets, searchJobs, type JobFilters as F } from "@/lib/db"
 
@@ -31,17 +31,18 @@ export default async function JobsPage({ searchParams }: PageProps<"/jobs">) {
   const { rows, total, page } = searchJobs(filters)
   const viewCounts = Object.fromEntries(Object.entries(VIEWS).map(([k, v]) => [k, countJobs({ ...base, ...v.preset })]))
 
+  // Full-height layout: header and filters on top, then list + description panes that scroll independently.
   return (
-    <>
+    <div className="flex h-svh flex-col overflow-hidden md:h-[calc(100svh-1rem)]">
       <PageHeader title="Jobs" description="Every listing from LinkedIn, Instahyre, job boards and company career pages — ranked for you.">
         <RunTaskButton task="fetch" label="Refresh" variant="ghost" />
       </PageHeader>
-      <PageBody>
-        <Suspense>
+      <Suspense>
+        <div className="px-4 pb-3 md:px-8">
           <JobsToolbar facets={facets(filters)} views={Object.entries(VIEWS).map(([k, v]) => ({ key: k, label: v.label, count: viewCounts[k] }))} view={view} total={total} />
-          <JobsTable rows={rows} total={total} page={page} pageSize={PAGE_SIZE} />
-        </Suspense>
-      </PageBody>
-    </>
+        </div>
+        <JobsWorkspace rows={rows} total={total} page={page} pageSize={PAGE_SIZE} />
+      </Suspense>
+    </div>
   )
 }

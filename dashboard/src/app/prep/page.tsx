@@ -1,5 +1,5 @@
 import { PageBody, PageHeader } from "@/components/page-header"
-import { PrepBody } from "@/components/jobs/job-sheet"
+import { PrepBody } from "@/components/jobs/job-detail"
 import { CompanyLogo } from "@/components/jobs/bits"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
