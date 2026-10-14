@@ -1,0 +1,29 @@
+# Dependencies & builds
+node_modules/
+dashboard/.next/
+*.tsbuildinfo
+
+# Secrets
+.env
+.env.*
+
+# Personal data — never commit. Fresh clones start from the *.example.* templates.
+profile/settings.json
+profile/profile.md
+resumes/master/*
+!resumes/master/resume.example.md
+resumes/tailored/*
+!resumes/tailored/.gitkeep
+cover-letters/*
+!cover-letters/.gitkeep
+
+# Runtime state: database, logs, screenshots, browser sessions
+data/*
+!data/schema.sql
+!data/columns.json
+!data/test/
+data/test/*
+!data/test/*.html
+
+# Local tooling
+.claude/

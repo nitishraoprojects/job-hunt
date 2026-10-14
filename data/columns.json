@@ -1,0 +1,17 @@
+{
+  "jobs": {
+    "external_id": "TEXT",
+    "posted_at": "TEXT",
+    "city": "TEXT",
+    "country": "TEXT",
+    "remote_type": "TEXT",
+    "experience": "TEXT",
+    "keywords": "TEXT",
+    "logo": "TEXT",
+    "apply_url": "TEXT",
+    "ats": "TEXT",
+    "last_seen_at": "TEXT",
+    "apply_error": "TEXT",
+    "starred": "INTEGER DEFAULT 0"
+  }
+}

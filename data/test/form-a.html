@@ -1,0 +1,24 @@
+<!doctype html><html><body style="font-family:sans-serif;max-width:640px;margin:40px auto">
+<h1>TestA application (TEST)</h1>
+<form onsubmit="event.preventDefault(); window.__answers = [...new FormData(this)]; document.body.innerHTML='<h2>Thank you for applying!</h2>'">
+  <div class="field"><label for="first_name">First Name *</label><input id="first_name" name="first_name" required></div>
+  <div class="field-wrapper"><div role="group" aria-labelledby="upload-label-resume" aria-required="true" class="file-upload">
+    <div id="upload-label-resume" class="label upload-label">Resume/CV<span class="required">*</span></div>
+    <button type="button">Attach</button><label class="visually-hidden" for="resume">Attach</label>
+    <input id="resume" type="file" style="position:absolute;width:1px;height:1px;opacity:0" onchange="document.getElementById('fname').textContent=this.files[0].name">
+    <span id="fname"></span><p>Accepted file types: pdf, doc, docx, txt, rtf</p></div></div>
+  <div class="field-wrapper"><div role="group" aria-labelledby="upload-label-cover" class="file-upload">
+    <div id="upload-label-cover" class="label upload-label">Cover Letter</div>
+    <label for="cover_letter">Attach</label><input id="cover_letter" type="file"></div></div>
+  <div class="field"><label for="q1">Do you have any relatives employed at TestA? *</label><select id="q1" name="q1" required><option value=""></option><option>Yes</option><option>No</option></select></div>
+  <div class="field"><label for="q2">Expected joining date *</label><input id="q2" name="q2" required></div>
+  <button type="submit">Submit application</button>
+</form>
+<script>
+  // Simulated person answers the two unknown questions after 5 seconds.
+  setTimeout(() => {
+    const s = document.getElementById("q1"); s.value = "No"; s.dispatchEvent(new Event("change", { bubbles: true }));
+    const t = document.getElementById("q2"); t.value = "Within 60 days"; t.dispatchEvent(new Event("input", { bubbles: true }));
+  }, 5000);
+</script>
+</body></html>

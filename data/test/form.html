@@ -1,0 +1,28 @@
+<!doctype html><html><body>
+<h1>Apply: Senior Frontend Engineer (TEST FORM)</h1>
+<form id="f" onsubmit="event.preventDefault(); document.body.innerHTML='<h2>Thank you for applying!</h2>'">
+  <div class="field"><label for="first_name">First Name *</label><input id="first_name" required></div>
+  <div class="field"><label for="last_name">Last Name *</label><input id="last_name" required></div>
+  <div class="field"><label for="email">Email *</label><input id="email" type="email" required></div>
+  <div class="field"><label for="phone">Phone</label><input id="phone" type="tel"></div>
+  <div class="field"><label for="resume">Resume/CV *</label><input id="resume" type="file" required></div>
+  <div class="field"><label for="li">LinkedIn Profile</label><input id="li" type="url"></div>
+  <div class="field"><label for="auth">Are you legally authorized to work in India? *</label>
+    <select id="auth" required><option></option><option>Yes</option><option>No</option></select></div>
+  <div class="field"><label for="notice">What is your notice period?</label><input id="notice"></div>
+  <fieldset class="field"><legend>Will you require visa sponsorship? *</legend>
+    <label><input type="radio" name="spons" value="yes" required> Yes</label>
+    <label><input type="radio" name="spons" value="no"> No</label></fieldset>
+  <div class="field"><label for="cl">Cover Letter</label><textarea id="cl"></textarea></div>
+  <div class="field"><label for="fav">Describe a complex Angular performance problem you solved *</label><textarea id="fav" required></textarea></div>
+  <div class="field"><label><input type="checkbox" id="consent" required> I agree to the privacy policy *</label></div>
+  <button type="submit">Submit application</button>
+</form>
+<script>
+  // Test helper: #autofill simulates a person answering the open question after 6 seconds.
+  if (location.hash === "#autofill") setTimeout(() => {
+    const el = document.getElementById("fav");
+    el.value = "Cut dashboard render time by moving to OnPush and trackBy";
+    el.dispatchEvent(new Event("input", { bubbles: true }));
+  }, 6000);
+</script></body></html>

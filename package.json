@@ -1,0 +1,23 @@
+{
+  "name": "job-hunt",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "npm install && npm --prefix dashboard install",
+    "dashboard": "cd dashboard && npm run dev -- -p 4321",
+    "fetch-jobs": "node --no-warnings bin/fetch-jobs.mjs",
+    "discover": "node --no-warnings bin/discover-boards.mjs",
+    "rescore": "node --no-warnings bin/rescore.mjs",
+    "apply": "node --no-warnings bin/apply.mjs --queue",
+    "autopilot": "node --no-warnings bin/autopilot.mjs --force"
+  },
+  "dependencies": {
+    "marked": "^16.0.0",
+    "nodemailer": "^10.0.16",
+    "playwright-core": "^1.64.0"
+  },
+  "description": "A local, automated job-search pipeline: finds jobs, scores them, auto-applies, and tracks everything in a dashboard.",
+  "engines": {
+    "node": ">=22.5"
+  }
+}

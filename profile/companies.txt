@@ -1,0 +1,339 @@
+# Companies to look for on public ATS boards (one per line). bin/discover-boards.mjs probes these.
+# Indian product companies & startups
+Razorpay
+Razorpay Software Private Limited
+Groww
+Zerodha
+CRED
+Meesho
+Zepto
+Swiggy
+Zomato
+Paytm
+PhonePe
+Flipkart
+Myntra
+Nykaa
+Ola
+Rapido
+Dunzo
+BigBasket
+Lenskart
+Urban Company
+Udaan
+ShareChat
+Dream11
+Dream Sports
+MPL
+Games24x7
+Unacademy
+upGrad
+PhysicsWallah
+Vedantu
+Eruditus
+Scaler
+Simplilearn
+Cars24
+Spinny
+CarDekho
+OYO
+MakeMyTrip
+Ixigo
+Cleartrip
+Delhivery
+Shiprocket
+Rivigo
+BlackBuck
+Zeta
+Slice
+Jupiter
+Fi Money
+Navi
+Jar
+Khatabook
+OkCredit
+BharatPe
+Pine Labs
+Juspay
+Cashfree
+PayU
+Setu
+M2P Fintech
+Perfios
+Acko
+Digit Insurance
+PolicyBazaar
+PB Fintech
+InsuranceDekho
+Smallcase
+Upstox
+Angel One
+INDmoney
+Groww
+Freshworks
+Zoho
+Chargebee
+Postman
+BrowserStack
+Hasura
+Druva
+Mindtickle
+Whatfix
+CleverTap
+MoEngage
+WebEngage
+Netcore
+Gupshup
+Exotel
+Haptik
+Yellow.ai
+Sprinklr
+Innovaccer
+Icertis
+Darwinbox
+Keka
+Leena AI
+Uniphore
+Observe.AI
+Atlan
+Rocketlane
+Zluri
+Spyne
+Plane
+Sarvam
+Krutrim
+LambdaTest
+HackerRank
+HackerEarth
+InMobi
+Glance
+Licious
+FreshToHome
+Country Delight
+Purplle
+Mamaearth
+Honasa Consumer
+boAt
+Info Edge
+Naukri
+99acres
+NoBroker
+Housing
+MagicBricks
+Practo
+PharmEasy
+1mg
+Tata 1mg
+HealthifyMe
+Cult.fit
+Curefit
+Pristyn Care
+Innovaccer
+Qure.ai
+Rupeek
+Instamojo
+Paytm Money
+Airtel
+Jio
+Tata Digital
+Tata Neu
+Reliance Retail
+Nykaa Fashion
+Bewakoof
+Snapdeal
+IndiaMART
+Justdial
+Classplus
+Teachmint
+LeadSquared
+Capillary Technologies
+Unbxd
+Zeotap
+Signzy
+IDfy
+Hyperverge
+Ather Energy
+Ola Electric
+Rebel Foods
+Swiggy Instamart
+Blinkit
+Zepto
+Dailyhunt
+VerSe Innovation
+Pocket FM
+Kuku FM
+Josh
+Moj
+InShorts
+Apna
+WorkIndia
+Turing
+Toplyne
+Fyle
+Hevo Data
+Ultrahuman
+Agnikul
+Skyroot
+GreyOrange
+Locus
+Shipsy
+FarEye
+Tracxn
+Stashfin
+KreditBee
+MoneyView
+Lendingkart
+Credgenics
+Ezetap
+Open Financial
+Recko
+Kissflow
+Freshdesk
+Wingify
+VWO
+ThoughtSpot
+Nutanix
+Rubrik
+Cohesity
+Arcesium
+Media.net
+Directi
+Sigmoid
+Tiger Analytics
+Fractal
+MathCo
+Quantiphi
+# Global companies with India engineering or remote-friendly
+Atlassian
+Stripe
+Databricks
+GitLab
+Docker
+Postman
+Twilio
+Okta
+Cloudflare
+Datadog
+MongoDB
+Elastic
+Confluent
+HashiCorp
+Canonical
+Automattic
+Zapier
+Doist
+Toptal
+Deel
+Remote
+Rippling
+Gusto
+Brex
+Ramp
+Plaid
+Notion
+Figma
+Canva
+Miro
+Airtable
+Asana
+ClickUp
+Monday
+Hubspot
+Intercom
+Zendesk
+Freshworks
+Grammarly
+Duolingo
+Coinbase
+Kraken
+Binance
+Chainlink
+Alchemy
+Razorpay
+Wise
+Revolut
+Booking
+Agoda
+Grab
+Gojek
+Shopee
+Sea
+Uber
+Lyft
+Airbnb
+DoorDash
+Instacart
+Pinterest
+Reddit
+Discord
+Spotify
+Netflix
+Dropbox
+Box
+Slack
+Zoom
+Twitch
+Snowflake
+Mixpanel
+Amplitude
+Segment
+Sentry
+Vercel
+Netlify
+Supabase
+PlanetScale
+Neon
+Replit
+Linear
+Retool
+Webflow
+Contentful
+Sanity
+Algolia
+Auth0
+Snyk
+Sourcegraph
+JetBrains
+Unity
+Epic Games
+Glean
+Harness
+Chargebee
+Celonis
+Visa
+Mastercard
+American Express
+Bosch
+Siemens
+Philips
+SAP
+Adobe
+Salesforce
+Oracle
+Intuit
+PayPal
+eBay
+Walmart
+Target
+Lowe's
+Expedia
+Thoughtworks
+Publicis Sapient
+EPAM
+Globant
+Nagarro
+GlobalLogic
+Endava
+Grid Dynamics
+Hashedin
+Tekion
+Highlevel
+Hevo
+Juspay
+Sumo Logic
+New Relic
+Dynatrace
+Zscaler
+Palo Alto Networks
+CrowdStrike
+Freshworks

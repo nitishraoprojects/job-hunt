@@ -1,0 +1,24 @@
+<!doctype html><html><body style="font-family:sans-serif;max-width:640px;margin:40px auto">
+<h1>Greenhouse-like TEST FORM</h1>
+<form onsubmit="event.preventDefault(); document.body.innerHTML='<h2>Thank you for applying!</h2>'">
+  <div class="field"><label for="first_name">First Name *</label><input id="first_name" required></div>
+  <div class="field"><label for="email">Email *</label><input id="email" type="email" required></div>
+  <!-- Upload widget that clears the input and shows the file name, like Greenhouse -->
+  <div class="field"><label for="resume">Resume/CV *</label><input id="resume" type="file" aria-required="true"
+     onchange="this.nextElementSibling.textContent=this.files[0].name; this.value=''"><span></span></div>
+  <div class="field"><label for="cover">Cover Letter</label><input id="cover" type="file"></div>
+  <!-- react-select style dropdown; value lives outside the input -->
+  <div class="field"><label id="fam">Do you have family members working at TestCo? *</label>
+    <div class="select__control"><div class="select__value-container" id="vc">
+      <div class="select__placeholder">Select...</div>
+      <input role="combobox" aria-labelledby="fam" aria-required="true" aria-invalid="true">
+    </div></div></div>
+  <button type="submit">Submit application</button>
+</form>
+<script>
+  // Simulated person picks "No" in the custom dropdown after 6 seconds.
+  setTimeout(() => {
+    const vc = document.getElementById("vc");
+    vc.querySelector(".select__placeholder").outerHTML = '<div class="select__single-value">No</div>';
+  }, 6000);
+</script></body></html>
