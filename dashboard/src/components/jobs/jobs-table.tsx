@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { ChevronLeftIcon, ChevronRightIcon, EyeOffIcon, SearchXIcon, StarIcon, XIcon, ZapIcon } from "lucide-react"
+import { CheckIcon, ChevronLeftIcon, ChevronRightIcon, EyeOffIcon, SearchXIcon, StarIcon, XIcon, ZapIcon } from "lucide-react"
 import { toast } from "sonner"
 import { autoApply, setJobStatus, toggleStar } from "@/app/actions"
 import { Badge } from "@/components/ui/badge"
@@ -27,6 +27,8 @@ function IconAction({ label, onClick, children }: { label: string; onClick: () =
   )
 }
 
+const APPLIED = ["applied", "interviewing", "offer", "rejected"]
+
 export function JobsTable({ rows, total, page, pageSize }: { rows: JobRow[]; total: number; page: number; pageSize: number }) {
   const [selected, setSelected] = useState<number[]>([])
   const [pending, start] = useTransition()
@@ -42,6 +44,16 @@ export function JobsTable({ rows, total, page, pageSize }: { rows: JobRow[]; tot
     router.push(`${pathname}?${next}`)
   }
   const run = (label: string, fn: () => Promise<unknown>) => start(async () => { await fn(); toast.success(label); setSelected([]) })
+  // Manual applications: one click, with Undo in case it was a mis-click.
+  const markApplied = (j: JobRow) => start(async () => {
+    const previous = j.status
+    await setJobStatus([j.id], "applied")
+    toast.success("Marked as applied", {
+      description: `${j.title} · ${j.company}`,
+      duration: 8000,
+      action: { label: "Undo", onClick: () => setJobStatus([j.id], previous) },
+    })
+  })
   const toggle = (id: number, on: boolean) => setSelected(on ? [...selected, id] : selected.filter((x) => x !== id))
   const allOnPage = rows.length > 0 && rows.every((r) => selected.includes(r.id))
 
@@ -65,6 +77,7 @@ export function JobsTable({ rows, total, page, pageSize }: { rows: JobRow[]; tot
             onCheckedChange={(v) => setSelected(v ? [...new Set([...selected, ...rows.map((r) => r.id)])] : selected.filter((id) => !rows.some((r) => r.id === id)))} />
           <span className="flex-1">Role</span>
           <span className="w-12 text-right">Fit</span>
+          <span className="w-28" />
           <span className="w-[88px]" />
         </div>
         <ul className="divide-y">
@@ -80,7 +93,7 @@ export function JobsTable({ rows, total, page, pageSize }: { rows: JobRow[]; tot
                   <div className="flex items-center gap-2">
                     <span className="truncate font-medium">{j.title}</span>
                     {j.starred ? <StarIcon className="size-3.5 shrink-0 fill-amber-400 text-amber-400" /> : null}
-                    {j.status !== "found" && <Badge variant="secondary" className="shrink-0">{statusLabel(j.status)}</Badge>}
+                    {j.status !== "found" && !APPLIED.includes(j.status) && <Badge variant="secondary" className="shrink-0">{statusLabel(j.status)}</Badge>}
                   </div>
                   <div className="mt-0.5 truncate text-sm text-muted-foreground">
                     {j.company}
@@ -92,6 +105,17 @@ export function JobsTable({ rows, total, page, pageSize }: { rows: JobRow[]; tot
                   </div>
                 </div>
                 <div className="w-12 text-right"><FitBadge score={j.fit_score} /></div>
+                <div className="flex w-28 justify-end" onClick={(e) => e.stopPropagation()}>
+                  {APPLIED.includes(j.status) ? (
+                    <span className="inline-flex items-center gap-1 text-sm font-medium text-emerald-600">
+                      <CheckIcon className="size-4" /> {j.status === "applied" ? "Applied" : statusLabel(j.status)}
+                    </span>
+                  ) : (
+                    <Button size="sm" variant="outline" disabled={pending} onClick={() => markApplied(j)}>
+                      <CheckIcon data-icon="inline-start" /> Mark applied
+                    </Button>
+                  )}
+                </div>
                 {/* Quiet until hover so the list stays calm. */}
                 <div className="flex w-[88px] justify-end gap-0.5 opacity-0 transition-opacity group-hover:opacity-100 focus-within:opacity-100">
                   {auto && !["applied", "interviewing", "offer", "queued", "applying"].includes(j.status) && (
